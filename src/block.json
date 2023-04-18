@@ -10,7 +10,23 @@
 	"supports": {
 		"html": false
 	},
-	
+	"attributes": {	
+		"accounts":{
+			"type":"string",
+			"default":{
+				"twitter":false,
+				"youttube":false
+			}
+		},
+		"tweet":{
+			"type":"string",
+			"default": {
+				"text":"",
+				"message":"",
+				"url":""
+			}
+		} 
+	},	
 	"textdomain": "giveaway-block",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",

@@ -5,10 +5,27 @@
   "version": "0.1.0",
   "title": "Giveaway Block",
   "category": "widgets",
-  "icon": "smiley",
+  "icon": "awards",
   "description": "Example block scaffolded with Create Block tool.",
   "supports": {
     "html": false
+  },
+  "attributes": {
+    "accounts": {
+      "type": "string",
+      "default": {
+        "twitter": false,
+        "youttube": false
+      }
+    },
+    "tweet": {
+      "type": "string",
+      "default": {
+        "text": "",
+        "message": "",
+        "url": ""
+      }
+    }
   },
   "textdomain": "giveaway-block",
   "editorScript": "file:./index.js",
