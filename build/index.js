@@ -10,7 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "blockMetadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__; },
+/* harmony export */   "blockMetadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__; },
 /* harmony export */   "name": function() { return /* binding */ name; },
 /* harmony export */   "settings": function() { return /* binding */ settings; }
 /* harmony export */ });
@@ -18,24 +18,125 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./social-row-block.json */ "./blocks/social-row-block.json");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./social-row-block.json */ "./blocks/social-row-block.json");
+
 
 
 
 const {
   name
-} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__;
+} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_3__;
+
+/**
+ * The edit function describes the structure of your block in the context of the
+ * editor. This represents what the editor will render when the block is used.
+ *
+ * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-edit-save/#edit
+ *
+ * @param {Object}   props               Properties passed to the function.
+ * @param {Object}   props.attributes    Available block attributes.
+ * @param {Function} props.setAttributes Function that updates individual attributes.
+ *
+ * @return {WPElement} Element to render.
+ */
+
 const settings = {
   icon: "smiley",
-  edit() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
-      templateLock: "all"
-    }));
+  attributes: {
+    accountType: {
+      type: "string",
+      default: "twitter"
+    },
+    twitter: {
+      default: {
+        text: "",
+        account: ""
+      }
+    },
+    instagram: {
+      default: {
+        text: "",
+        url: ""
+      }
+    }
+  },
+  edit(_ref) {
+    let {
+      attributes,
+      setAttributes
+    } = _ref;
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      style: {
+        marginBottom: "40px"
+      }
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelRow, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.RadioControl, {
+      label: "Social Media",
+      help: "The type of social media to use",
+      selected: attributes.accountType,
+      options: [{
+        label: "Follow on Twitter",
+        value: "twitter"
+      }, {
+        label: "Follow on instagram",
+        value: "instagram"
+      }],
+      onChange: value => setAttributes({
+        accountType: value
+      })
+    })))), attributes.accountType == "twitter" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "twitter"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Follow me on Twitter",
+      value: attributes.twitter.text,
+      onChange: value => {
+        setAttributes({
+          twitter: {
+            ...attributes.twitter,
+            text: value
+          }
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Your Twitter account",
+      value: attributes.twitter.account,
+      onChange: value => {
+        setAttributes({
+          twitter: {
+            ...attributes.twitter,
+            account: value
+          }
+        });
+      }
+    })), attributes.accountType == "instagram" && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Dashicon, {
+      icon: "instagram"
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Follow me on Instagram",
+      value: attributes.instagram.text,
+      onChange: value => {
+        setAttributes({
+          instagram: {
+            ...attributes.instagram,
+            text: value
+          }
+        });
+      }
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.PlainText, {
+      placeholder: "Your Instagram",
+      value: attributes.instagram.url,
+      onChange: value => {
+        setAttributes({
+          instagram: {
+            ...attributes.instagram,
+            url: value
+          }
+        });
+      }
+    })));
   },
   save() {
-    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
-      templateLock: "all"
-    }));
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)());
   }
 };
 
@@ -105,7 +206,8 @@ function Edit(_ref) {
   } = _ref;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, {
     template: MY_TEMPLATE,
-    templateLock: "insert"
+    templateLock: "insert",
+    allowedBlocks: ["create-block/giveaway-block-social-row"]
   }));
 }
 
@@ -253,6 +355,16 @@ module.exports = window["wp"]["blockEditor"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["blocks"];
+
+/***/ }),
+
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
+/***/ (function(module) {
+
+module.exports = window["wp"]["components"];
 
 /***/ }),
 

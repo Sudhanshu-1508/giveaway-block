@@ -41,7 +41,9 @@ export default function Edit( { className, attributes, setAttributes } ) {
 		<div { ...useBlockProps() }>
 		
 			<InnerBlocks template={MY_TEMPLATE} 
-			templateLock="insert" />
+			templateLock="insert" 
+			allowedBlocks={["create-block/giveaway-block-social-row"]}
+			/>
 		</div>
 	);
 }
