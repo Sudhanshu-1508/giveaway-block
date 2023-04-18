@@ -2,6 +2,46 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./blocks/social-row.js":
+/*!******************************!*\
+  !*** ./blocks/social-row.js ***!
+  \******************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "blockMetadata": function() { return /* reexport default export from named module */ _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__; },
+/* harmony export */   "name": function() { return /* binding */ name; },
+/* harmony export */   "settings": function() { return /* binding */ settings; }
+/* harmony export */ });
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./social-row-block.json */ "./blocks/social-row-block.json");
+
+
+
+const {
+  name
+} = _social_row_block_json__WEBPACK_IMPORTED_MODULE_2__;
+const settings = {
+  icon: "smiley",
+  edit() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+      templateLock: "all"
+    }));
+  },
+  save() {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InnerBlocks, {
+      templateLock: "all"
+    }));
+  }
+};
+
+
+/***/ }),
+
 /***/ "./src/edit.js":
 /*!*********************!*\
   !*** ./src/edit.js ***!
@@ -38,7 +78,7 @@ const MY_TEMPLATE = [["core/image", {}], ["core/heading", {
   placeholder: "Giveaway Title"
 }], ["core/paragraph", {
   placeholder: "Giveaway description"
-}], ["core/button", {
+}], ["create-block/giveaway-block-social-row"], ["core/button", {
   placeholder: "Custom-gutenpride"
 }]];
 /**
@@ -84,6 +124,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./src/edit.js");
 /* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./src/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./src/block.json");
+/* harmony import */ var _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../blocks/social-row */ "./blocks/social-row.js");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
@@ -125,6 +166,11 @@ __webpack_require__.r(__webpack_exports__);
    */
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
+
+(0,_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__.registerBlockType)({
+  name: _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.name,
+  ..._blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.blockMetadata
+}, _blocks_social_row__WEBPACK_IMPORTED_MODULE_5__.settings);
 
 /***/ }),
 
@@ -227,6 +273,16 @@ module.exports = window["wp"]["element"];
 /***/ (function(module) {
 
 module.exports = window["wp"]["i18n"];
+
+/***/ }),
+
+/***/ "./blocks/social-row-block.json":
+/*!**************************************!*\
+  !*** ./blocks/social-row-block.json ***!
+  \**************************************/
+/***/ (function(module) {
+
+module.exports = JSON.parse('{"name":"create-block/giveaway-block-social-row","title":"Social row","category":"widgets","icon":"smiley","parent":["create-block/giveaway-block"],"description":"Add a social media row to giveaway block","textdomain":"giveaway-block-sk","support":{"html":false}}');
 
 /***/ }),
 

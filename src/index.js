@@ -40,3 +40,7 @@ registerBlockType( metadata.name, {
 	 */
 	save,
 } );
+
+import { blockMetadata, name, settings } from '../blocks/social-row';
+
+registerBlockType( {name, ...blockMetadata}, settings);

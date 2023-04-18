@@ -1,3 +1,12 @@
 {
-    "name": "create-block/giveaway-block-social-row"
+    "name": "create-block/giveaway-block-social-row",
+    "title":"Social row",
+    "category":"widgets",
+    "icon":"smiley",
+    "parent": ["create-block/giveaway-block"],
+    "description": "Add a social media row to giveaway block",
+    "textdomain": "giveaway-block-sk",
+    "support":{
+        "html":false
+    }
 }

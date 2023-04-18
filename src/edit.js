@@ -17,6 +17,7 @@ const MY_TEMPLATE = [
 	["core/image", {}],
 	["core/heading", { placeholder: "Giveaway Title"}],
 	["core/paragraph", { placeholder: "Giveaway description" }],
+	["create-block/giveaway-block-social-row"],
 	["core/button", { placeholder: "Custom-gutenpride"}]
 ]
 /**
