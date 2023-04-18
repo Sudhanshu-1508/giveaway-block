@@ -11,8 +11,14 @@ import { __ } from '@wordpress/i18n';
  *
  * @see https://developer.wordpress.org/block-editor/reference-guides/packages/packages-block-editor/#useblockprops
  */
-import { useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 
+const MY_TEMPLATE = [
+	["core/image", {}],
+	["core/heading", { placeholder: "Giveaway Title"}],
+	["core/paragraph", { placeholder: "Giveaway description" }],
+	["core/button", { placeholder: "Custom-gutenpride"}]
+]
 /**
  * Lets webpack process CSS, SASS or SCSS files referenced in JavaScript files.
  * Those files can contain any CSS code that gets applied to the editor.
@@ -29,13 +35,12 @@ import './editor.scss';
  *
  * @return {WPElement} Element to render.
  */
-export default function Edit() {
+export default function Edit( { className, attributes, setAttributes } ) {
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Giveaway Block – hello from the editor!',
-				'giveaway-block'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+		
+			<InnerBlocks template={MY_TEMPLATE} 
+			templateLock="insert" />
+		</div>
 	);
 }

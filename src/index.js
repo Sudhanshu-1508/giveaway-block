@@ -27,6 +27,9 @@ import metadata from './block.json';
  * @see https://developer.wordpress.org/block-editor/reference-guides/block-api/block-registration/
  */
 registerBlockType( metadata.name, {
+	title:'giveaway-block',
+	category:'text',
+	icon:'awards',
 	/**
 	 * @see ./edit.js
 	 */
